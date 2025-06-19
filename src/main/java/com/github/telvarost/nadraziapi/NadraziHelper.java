@@ -14,4 +14,8 @@ public class NadraziHelper {
     public static void setFrozen(LivingEntity livingEntity, int frozenDurationTicks) {
         livingEntity.nadraziApi_setFrozenTicks(frozenDurationTicks);
     }
+
+    public static int getFrozen(LivingEntity livingEntity) {
+        return livingEntity.nadraziApi_getFrozenTicks();
+    }
 }
