@@ -3,11 +3,14 @@
 A mod for Minecraft Beta 1.7.3 that provides an API for freezing entities, getting currently playing sound, and other data.
 * Mod is multiplayer compatible
 
-### Features
+### Features (client and server)
 * Ability to get/set enemies frozen time (in Minecraft ticks)
 * Ability to get entity block collision variable (used to dynamically change block collision for different entities)
-* Ability to get currently playing streaming song or music song (client-side) 
-* Ability to set biome or dimension specific music (client-side)
+
+### Clientside Features
+* Ability to get currently playing streaming song or music song
+* Ability to make music biome or dimension specific
+* Ability to cancel current background music
 
 ## Installation using Prism Launcher
 
