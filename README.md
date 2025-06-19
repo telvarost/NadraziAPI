@@ -1,6 +1,7 @@
 # NadraziAPI for Minecraft Beta 1.7.3
 
 A mod for Minecraft Beta 1.7.3 that provides an API for freezing entities, getting currently playing sound, and other data.
+(Nádraží is the Czech word for Station like StationAPI, a suggested play on words by the modding community :D)
 * Mod is multiplayer compatible
 
 ### Features (client and server)
