@@ -53,7 +53,7 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
     int deathTimeHeld;
 
     @Unique
-    int cancelMovementCounter = 5;
+    int cancelMovementCounter = 3;
     @Unique
     int _frozenTicks = 0;
 
@@ -68,6 +68,7 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
 
     @Override
     public void zastavkaApi_setFrozenTicks(int frozenTicks) {
+        cancelMovementCounter = 3;
         _frozenTicks = frozenTicks;
     }
 
