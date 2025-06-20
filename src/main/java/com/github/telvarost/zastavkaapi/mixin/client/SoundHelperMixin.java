@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.sound.Sound;
 import net.minecraft.client.sound.SoundEntry;
 import net.minecraft.client.sound.SoundManager;
@@ -26,9 +25,7 @@ public abstract class SoundHelperMixin {
 
     @Shadow private static SoundSystem soundSystem;
 
-    @Shadow private GameOptions gameOptions;
     @Unique private int dimensionId = 0;
-
     @Unique private String biomeTag = "-unknown-";
 
     @Inject(
