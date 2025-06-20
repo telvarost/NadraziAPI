@@ -53,7 +53,7 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
     int deathTimeHeld;
 
     @Unique
-    int cancelMovementCounter = 3;
+    int delayCancelMovementTicks = 3;
     @Unique
     int _frozenTicks = 0;
 
@@ -68,7 +68,11 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
 
     @Override
     public void zastavkaApi_setFrozenTicks(int frozenTicks) {
-        cancelMovementCounter = 3;
+        /** - If the entity is not frozen delay freeze movement effect by 3 ticks */
+        if (0 >= _frozenTicks) {
+            delayCancelMovementTicks = 3;
+        }
+
         _frozenTicks = frozenTicks;
     }
 
@@ -85,7 +89,7 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
     @Inject(method = "damage", at = @At("HEAD"))
     public void damage(Entity damageSource, int amount, CallbackInfoReturnable<Boolean> cir) {
         if (0 < this.zastavkaApi_getFrozenTicks()) {
-            cancelMovementCounter = 3;
+            delayCancelMovementTicks = 3;
 
             if (this.isOnFire() && !(damageSource instanceof PlayerEntity)) {
                 this.zastavkaApi_setFrozenTicks(0);
@@ -113,8 +117,8 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
             horizontalSpeed = 0.0F;
             damagedSwingDir = 0.0F;
 
-            if (0 < cancelMovementCounter) {
-                cancelMovementCounter--;
+            if (0 < delayCancelMovementTicks) {
+                delayCancelMovementTicks--;
                 swingAnimationProgressHeld = lastSwingAnimationProgress;
                 walkAnimationProgressHeld = walkAnimationProgress;
                 walkAnimationSpeedHeld = lastWalkAnimationSpeed;
