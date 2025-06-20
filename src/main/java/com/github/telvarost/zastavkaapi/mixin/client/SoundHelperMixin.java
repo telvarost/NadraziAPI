@@ -1,6 +1,6 @@
-package com.github.telvarost.nadraziapi.mixin.client;
+package com.github.telvarost.zastavkaapi.mixin.client;
 
-import com.github.telvarost.nadraziapi.NadraziHelper;
+import com.github.telvarost.zastavkaapi.ZastavkaHelper;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.api.EnvType;
@@ -37,8 +37,8 @@ public abstract class SoundHelperMixin {
             cancellable = true
     )
     public void quickAdditions_tickCancelSong(CallbackInfo ci) {
-        if (NadraziHelper.cancelCurrentBGM) {
-            NadraziHelper.cancelCurrentBGM = false;
+        if (ZastavkaHelper.cancelCurrentBGM) {
+            ZastavkaHelper.cancelCurrentBGM = false;
             soundSystem.stop("BgMusic");
         }
     }
@@ -55,7 +55,7 @@ public abstract class SoundHelperMixin {
 
         if (null != streamingSong)
         {
-            NadraziHelper.currentStreamingSong = streamingSong.id;
+            ZastavkaHelper.currentStreamingSong = streamingSong.id;
         }
 
         return streamingSong;
@@ -70,7 +70,7 @@ public abstract class SoundHelperMixin {
     )
     public Sound quickAdditions_tickGetMusicSong(SoundEntry instance, Operation<Sound> original) {
         Sound currentMusic = original.call(instance);
-        NadraziHelper.currentMusicSong = currentMusic.id;
+        ZastavkaHelper.currentMusicSong = currentMusic.id;
 
         if (  (null != currentMusic)
            && (null != currentMusic.id)
@@ -82,18 +82,18 @@ public abstract class SoundHelperMixin {
             }
 
             if (currentMusic.id.contains("-level" + dimensionId + "-")) {
-                NadraziHelper.songLevelId = dimensionId;
+                ZastavkaHelper.songLevelId = dimensionId;
                 return currentMusic;
             }
 
             if (0 == dimensionId) {
                 if (currentMusic.id.contains("-overworld-")) {
-                    NadraziHelper.songLevelId = dimensionId;
+                    ZastavkaHelper.songLevelId = dimensionId;
                     return currentMusic;
                 }
             } else if (-1 == dimensionId) {
                 if (currentMusic.id.contains("-nether-")) {
-                    NadraziHelper.songLevelId = dimensionId;
+                    ZastavkaHelper.songLevelId = dimensionId;
                     return currentMusic;
                 }
             }
@@ -110,12 +110,12 @@ public abstract class SoundHelperMixin {
             }
 
             if (currentMusic.id.contains(biomeTag)) {
-                NadraziHelper.songLevelId = Integer.MAX_VALUE;
+                ZastavkaHelper.songLevelId = Integer.MAX_VALUE;
                 return currentMusic;
             }
 
             System.out.println("Skipping: " + currentMusic.id);
-            NadraziHelper.songLevelId = Integer.MAX_VALUE;
+            ZastavkaHelper.songLevelId = Integer.MAX_VALUE;
             return null;
         } else if (  (null != currentMusic)
                   && (null != currentMusic.soundFile)
@@ -127,18 +127,18 @@ public abstract class SoundHelperMixin {
             }
 
             if (currentMusic.soundFile.toString().contains("-level" + dimensionId + "-")) {
-                NadraziHelper.songLevelId = dimensionId;
+                ZastavkaHelper.songLevelId = dimensionId;
                 return currentMusic;
             }
 
             if (0 == dimensionId) {
                 if (currentMusic.soundFile.toString().contains("-overworld-")) {
-                    NadraziHelper.songLevelId = dimensionId;
+                    ZastavkaHelper.songLevelId = dimensionId;
                     return currentMusic;
                 }
             } else if (-1 == dimensionId) {
                 if (currentMusic.soundFile.toString().contains("-nether-")) {
-                    NadraziHelper.songLevelId = dimensionId;
+                    ZastavkaHelper.songLevelId = dimensionId;
                     return currentMusic;
                 }
             }
@@ -155,16 +155,16 @@ public abstract class SoundHelperMixin {
             }
 
             if (currentMusic.soundFile.toString().contains(biomeTag)) {
-                NadraziHelper.songLevelId = Integer.MAX_VALUE;
+                ZastavkaHelper.songLevelId = Integer.MAX_VALUE;
                 return currentMusic;
             }
 
             System.out.println("Skipping: " + currentMusic.soundFile);
-            NadraziHelper.songLevelId = Integer.MAX_VALUE;
+            ZastavkaHelper.songLevelId = Integer.MAX_VALUE;
             return null;
         }
 
-        NadraziHelper.songLevelId = Integer.MAX_VALUE;
+        ZastavkaHelper.songLevelId = Integer.MAX_VALUE;
         return currentMusic;
     }
 }

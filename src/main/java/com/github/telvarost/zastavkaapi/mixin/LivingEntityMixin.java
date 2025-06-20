@@ -1,6 +1,6 @@
-package com.github.telvarost.nadraziapi.mixin;
+package com.github.telvarost.zastavkaapi.mixin;
 
-import com.github.telvarost.nadraziapi.interfaces.FrozenInterface;
+import com.github.telvarost.zastavkaapi.interfaces.FrozenInterface;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -62,32 +62,32 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
     }
 
     @Override
-    public int nadraziApi_getFrozenTicks() {
+    public int zastavkaApi_getFrozenTicks() {
         return _frozenTicks;
     }
 
     @Override
-    public void nadraziApi_setFrozenTicks(int frozenTicks) {
+    public void zastavkaApi_setFrozenTicks(int frozenTicks) {
         _frozenTicks = frozenTicks;
     }
 
     @Inject(method = "writeNbt", at = @At("RETURN"))
-    private void nadraziApi_writeCustomDataToTag(NbtCompound tag, CallbackInfo info) {
+    private void zastavkaApi_writeCustomDataToTag(NbtCompound tag, CallbackInfo info) {
         tag.putInt("Frozen", _frozenTicks);
     }
 
     @Inject(method = "readNbt", at = @At("RETURN"))
-    private void nadraziApi_readCustomDataFromTag(NbtCompound tag, CallbackInfo info) {
+    private void zastavkaApi_readCustomDataFromTag(NbtCompound tag, CallbackInfo info) {
         _frozenTicks = tag.getInt("Frozen");
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
     public void damage(Entity damageSource, int amount, CallbackInfoReturnable<Boolean> cir) {
-        if (0 < this.nadraziApi_getFrozenTicks()) {
+        if (0 < this.zastavkaApi_getFrozenTicks()) {
             cancelMovementCounter = 3;
 
             if (this.isOnFire() && !(damageSource instanceof PlayerEntity)) {
-                this.nadraziApi_setFrozenTicks(0);
+                this.zastavkaApi_setFrozenTicks(0);
             }
         }
     }
@@ -100,8 +100,8 @@ public abstract class LivingEntityMixin extends Entity implements FrozenInterfac
             ),
             cancellable = true
     )
-    public void nadraziApi_tickMovement(CallbackInfo ci) {
-        if ((0 < this.nadraziApi_getFrozenTicks()) && this.isAlive()) {
+    public void zastavkaApi_tickMovement(CallbackInfo ci) {
+        if ((0 < this.zastavkaApi_getFrozenTicks()) && this.isAlive()) {
             if (!this.onGround && !this.isWet()) {
                 this.tickMovement();
             } else {

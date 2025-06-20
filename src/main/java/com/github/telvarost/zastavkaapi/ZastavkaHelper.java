@@ -1,9 +1,9 @@
-package com.github.telvarost.nadraziapi;
+package com.github.telvarost.zastavkaapi;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
-public class NadraziHelper {
+public class ZastavkaHelper {
     public static Entity collisionEntity = null;
     public static int songLevelId = Integer.MAX_VALUE;
     public static String currentStreamingSong = null;
@@ -12,10 +12,10 @@ public class NadraziHelper {
     //public static ArrayList<String> musicForMainMenu;
 
     public static void setFrozen(LivingEntity livingEntity, int frozenDurationTicks) {
-        livingEntity.nadraziApi_setFrozenTicks(frozenDurationTicks);
+        livingEntity.zastavkaApi_setFrozenTicks(frozenDurationTicks);
     }
 
     public static int getFrozen(LivingEntity livingEntity) {
-        return livingEntity.nadraziApi_getFrozenTicks();
+        return livingEntity.zastavkaApi_getFrozenTicks();
     }
 }

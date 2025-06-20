@@ -1,13 +1,13 @@
-package com.github.telvarost.nadraziapi.interfaces;
+package com.github.telvarost.zastavkaapi.interfaces;
 
 import net.modificationstation.stationapi.api.util.Util;
 
 public interface FrozenInterface {
-    default int nadraziApi_getFrozenTicks() {
+    default int zastavkaApi_getFrozenTicks() {
         return Util.assertImpl();
     }
 
-    default void nadraziApi_setFrozenTicks(int frozenTicks) {
+    default void zastavkaApi_setFrozenTicks(int frozenTicks) {
         Util.assertImpl();
     }
 }

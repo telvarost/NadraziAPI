@@ -1,4 +1,4 @@
-package com.github.telvarost.nadraziapi.mixin.client;
+package com.github.telvarost.zastavkaapi.mixin.client;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -23,8 +23,8 @@ public abstract class LivingEntityRendererMixin extends EntityRenderer {
             ),
             remap = false
     )
-    protected void nadraziApi_glTranslatef(LivingEntity livingEntity, double d, double e, double f, float g, float h, CallbackInfo ci) {
-        if (0 < livingEntity.nadraziApi_getFrozenTicks()) {
+    protected void zastavkaApi_glTranslatef(LivingEntity livingEntity, double d, double e, double f, float g, float h, CallbackInfo ci) {
+        if (0 < livingEntity.zastavkaApi_getFrozenTicks()) {
             GL11.glEnable(GL11.GL_NORMALIZE);
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
@@ -38,8 +38,8 @@ public abstract class LivingEntityRendererMixin extends EntityRenderer {
                     target = "Lnet/minecraft/client/render/entity/LivingEntityRenderer;bindTexture(Lnet/minecraft/entity/LivingEntity;IF)Z"
             )
     )
-    protected boolean nadraziApi_bindTexture(LivingEntityRenderer instance, LivingEntity mob, int layer, float tickDelta, Operation<Boolean> original) {
-        if (0 < mob.nadraziApi_getFrozenTicks()) {
+    protected boolean zastavkaApi_bindTexture(LivingEntityRenderer instance, LivingEntity mob, int layer, float tickDelta, Operation<Boolean> original) {
+        if (0 < mob.zastavkaApi_getFrozenTicks()) {
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             return false;
         } else {
@@ -54,8 +54,8 @@ public abstract class LivingEntityRendererMixin extends EntityRenderer {
                     target = "Lnet/minecraft/client/render/entity/model/EntityModel;render(FFFFFF)V"
             )
     )
-    protected void nadraziApi_render(EntityModel instance, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch, float scale, Operation<Void> original, LivingEntity livingEntity, double d, double e, double f, float g, float h) {
-        if (0 < livingEntity.nadraziApi_getFrozenTicks()) {
+    protected void zastavkaApi_render(EntityModel instance, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch, float scale, Operation<Void> original, LivingEntity livingEntity, double d, double e, double f, float g, float h) {
+        if (0 < livingEntity.zastavkaApi_getFrozenTicks()) {
             original.call(instance, livingEntity.walkAnimationProgress, livingEntity.lastWalkAnimationSpeed, (float)livingEntity.age, headYaw, headPitch, scale);
         } else {
             original.call(instance, limbAngle, limbDistance, animationProgress, headYaw, headPitch, scale);

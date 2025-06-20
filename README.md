@@ -1,7 +1,7 @@
-# NadraziAPI for Minecraft Beta 1.7.3
+# ZastavkaAPI for Minecraft Beta 1.7.3
 
 A mod for Minecraft Beta 1.7.3 that provides an API for freezing entities, getting currently playing sound, and other data.
-(Nádraží is the Czech word for Station like StationAPI, a suggested play on words by the modding community :D)
+(Zastávka is the Czech word for station/stop similar to StationAPI, a suggested play on words by the modding community :D)
 * Mod is multiplayer compatible
 
 ### Features (client and server)
@@ -18,12 +18,12 @@ A mod for Minecraft Beta 1.7.3 that provides an API for freezing entities, getti
 1. Download an instance of Babric for Prism Launcher: https://github.com/Glass-Series/babric-prism-instance
 2. Install Java 17 and set the instance to use it: https://adoptium.net/temurin/releases/
 3. (Optional) Add Mod Menu to the mod folder for the instance: https://modrinth.com/mod/modmenu-beta
-4. Add this mod to the mod folder for the instance: https://github.com/telvarost/NadraziAPI/releases
+4. Add this mod to the mod folder for the instance: https://github.com/telvarost/ZastavkaAPI/releases
 5. Run and enjoy! 👍
 
 ## Feedback
 
-Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/NadraziAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
+Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/ZastavkaAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
 
 ## Contributing
 

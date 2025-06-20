@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "nadraziapi",
+  "id": "zastavkaapi",
   "version": "${version}",
 
-  "name": "NadraziAPI",
+  "name": "ZastavkaAPI",
   "description": "Provides an API for freezing entities, getting currently playing sound, and other data.",
   "authors": [
     "Telvarost"
   ],
   "contact": {
-    "issues": "https://github.com/telvarost/NadraziAPI/issues",
-    "homepage": "https://github.com/telvarost/NadraziAPI/",
-    "sources": "https://github.com/telvarost/NadraziAPI/"
+    "issues": "https://github.com/telvarost/ZastavkaAPI/issues",
+    "homepage": "https://github.com/telvarost/ZastavkaAPI/",
+    "sources": "https://github.com/telvarost/ZastavkaAPI/"
   },
 
   "license": "MIT",
-  "icon": "assets/nadraziapi/icon.png",
+  "icon": "assets/zastavkaapi/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -27,7 +27,7 @@
     ]
   },
   "mixins": [
-    "nadraziapi.mixins.json"
+    "zastavkaapi.mixins.json"
   ],
 
   "depends": {
@@ -43,7 +43,7 @@
     "modmenu:api": true,
     "loom:injected_interfaces": {
       "net/minecraft/class_127": [
-        "com/github/telvarost/nadraziapi/interfaces/FrozenInterface"
+        "com/github/telvarost/zastavkaapi/interfaces/FrozenInterface"
       ]
     }
   }

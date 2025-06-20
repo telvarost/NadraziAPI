@@ -1,6 +1,6 @@
-package com.github.telvarost.nadraziapi.mixin;
+package com.github.telvarost.zastavkaapi.mixin;
 
-import com.github.telvarost.nadraziapi.NadraziHelper;
+import com.github.telvarost.zastavkaapi.ZastavkaHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -21,6 +21,6 @@ public abstract class WorldMixin {
             )
     )
     public void getEntityCollisions(Entity entity, Box box, CallbackInfoReturnable<List> cir) {
-        NadraziHelper.collisionEntity = entity;
+        ZastavkaHelper.collisionEntity = entity;
     }
 }
